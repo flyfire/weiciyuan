@@ -6,7 +6,7 @@ dependencies {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    buildToolsVersion '28.0.2'
 
     sourceSets {
         main {
@@ -14,5 +14,10 @@ android {
             java.srcDirs = ['src']
             res.srcDirs = ['res']
         }
+    }
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 21
     }
 }

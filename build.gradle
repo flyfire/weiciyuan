@@ -5,9 +5,13 @@ buildscript {
 //            url "http://127.0.0.1:8081/nexus/content/groups/public/"
 //        }
         maven { url 'http://download.crashlytics.com/maven' }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.1.1'
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha08'
         classpath 'com.crashlytics.tools.gradle:crashlytics-gradle:1.14.4'
     }
 }
@@ -16,6 +20,10 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'http://download.crashlytics.com/maven' }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
 }
 
@@ -29,7 +37,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
 
-    buildToolsVersion "21.1.2"
+    buildToolsVersion '28.0.2'
     compileSdkVersion 21
 
     defaultConfig {
@@ -104,9 +112,9 @@ android {
         debug {
             applicationIdSuffix ".debug"
             versionNameSuffix "-debug"
-            resValue "string", "applicationId", "org.qii.weiciyuan" + getApplicationIdSuffix()
+            resValue "string", "applicationId", "org.qii.weiciyuan"
             resValue "string", "weiciyuanOfficalWeiboName",
-                    "org.qii.weiciyuan" + getApplicationIdSuffix() + ".mention://@四次元App"
+                    "org.qii.weiciyuan.mention://@四次元App"
             debuggable true
             signingConfig signingConfigs.debug
         }
